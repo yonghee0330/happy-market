@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>플리마켓 신청 — 해피니스북스토어 × b.books 0.1평 서점</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FBF5E6;
+      --warm-white: #FEF9F0;
+      --ink: #1C1510;
+      --ink-light: #3D2B1F;
+      --amber: #C8892A;
+      --amber-light: #E8A83A;
+      --terracotta: #C75B3A;
+      --terracotta-light: #E07050;
+      --sage: #6B8C6A;
+      --sage-light: #8AAD89;
+      --sky: #4A7FA5;
+      --paper: #F0E8D5;
+      --shadow: rgba(28, 21, 16, 0.12);
+      --shadow-strong: rgba(28, 21, 16, 0.22);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background-color: var(--ink);
+      background-image:
+        radial-gradient(ellipse 70% 50% at 80% 30%, rgba(200,137,42,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 20% 70%, rgba(107,140,106,0.12) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='0.8' fill='%23FBF5E6' opacity='0.15'/%3E%3C/svg%3E");
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1.5px 1.5px at 10% 20%, rgba(251,245,230,0.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 60%, rgba(251,245,230,0.2) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 65% 15%, rgba(251,245,230,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 82% 45%, rgba(251,245,230,0.2) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 50% 80%, rgba(251,245,230,0.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 75%, rgba(251,245,230,0.2) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--amber-light);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.2s forwards;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,137,42,0.15);
+      border: 1px solid rgba(200,137,42,0.4);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      color: var(--amber-light);
+      letter-spacing: 0.1em;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.3s forwards;
+    }
+
+    .hero-title-wrap {
+      text-align: center;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+
+    .hero-sub {
+      font-family: 'Gowun Batang', serif;
+      font-size: clamp(14px, 3vw, 18px);
+      color: rgba(251,245,230,0.55);
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-family: 'Gowun Batang', serif;
+      font-size: clamp(42px, 9vw, 80px);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title .accent {
+      color: var(--amber-light);
+      position: relative;
+    }
+
+    .hero-title .accent::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--terracotta-light);
+      border-radius: 2px;
+      opacity: 0.7;
+    }
+
+    .hero-subtitle {
+      font-family: 'Gowun Batang', serif;
+      font-size: clamp(16px, 3.5vw, 22px);
+      color: rgba(251,245,230,0.7);
+      margin-top: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 24px;
+      margin: 32px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+
+    .hero-info-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: rgba(251,245,230,0.65);
+      letter-spacing: 0.05em;
+    }
+
+    .hero-info-item .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+
+    .hero-desc {
+      font-family: 'Gowun Batang', serif;
+      font-size: clamp(14px, 2.5vw, 17px);
+      color: rgba(251,245,230,0.55);
+      text-align: center;
+      line-height: 1.9;
+      max-width: 500px;
+      margin: 0 auto 36px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.85s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amber);
+      color: var(--ink);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 14px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.25s;
+      box-shadow: 0 4px 20px rgba(200,137,42,0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--amber-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(200,137,42,0.5);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--cream);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      padding: 14px 28px;
+      border-radius: 100px;
+      border: 1px solid rgba(251,245,230,0.3);
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(251,245,230,0.6);
+      background: rgba(251,245,230,0.07);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards;
+    }
+
+    .hero-scroll span {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: rgba(251,245,230,0.3);
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, rgba(251,245,230,0.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.1); }
+    }
+
+    /* ─── SECTION BASE ─── */
+    section {
+      padding: 80px 24px;
+    }
+
+    .section-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Gowun Batang', serif;
+      font-size: clamp(26px, 5vw, 40px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--ink-light);
+      opacity: 0.8;
+      max-width: 620px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--warm-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #about::before {
+      content: '책';
+      position: absolute;
+      font-family: 'Gowun Batang', serif;
+      font-size: 280px;
+      font-weight: 700;
+      color: rgba(200,137,42,0.05);
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 580px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
+    .about-card {
+      background: var(--cream);
+      border: 1px solid rgba(200,137,42,0.2);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .about-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px var(--shadow);
+    }
+
+    .about-card .icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .about-card h3 {
+      font-family: 'Gowun Batang', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .about-card p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--ink-light);
+      opacity: 0.8;
+    }
+
+    /* ─── INFO TABLE ─── */
+    #info {
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #info .section-title { color: var(--cream); }
+    #info .section-label { color: var(--amber-light); }
+    #info .section-desc { color: rgba(251,245,230,0.6); }
+
+    .info-table {
+      margin-top: 40px;
+      border: 1px solid rgba(251,245,230,0.12);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .info-row {
+      display: flex;
+      border-bottom: 1px solid rgba(251,245,230,0.08);
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-label {
+      width: 130px;
+      flex-shrink: 0;
+      padding: 18px 20px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--amber);
+      background: rgba(200,137,42,0.08);
+      display: flex;
+      align-items: center;
+    }
+
+    .info-value {
+      flex: 1;
+      padding: 18px 20px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(251,245,230,0.75);
+      display: flex;
+      align-items: center;
+    }
+
+    @media (max-width: 500px) {
+      .info-row { flex-direction: column; }
+      .info-label { width: 100%; border-bottom: 1px solid rgba(251,245,230,0.06); }
+    }
+
+    /* ─── ITEMS ─── */
+    #items {
+      background: var(--paper);
+      position: relative;
+    }
+
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .items-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 380px) {
+      .items-grid { grid-template-columns: 1fr; }
+    }
+
+    .item-card {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 22px 18px;
+      border: 1px solid rgba(28,21,16,0.08);
+    }
+
+    .item-card .cat {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 8px;
+    }
+
+    .item-card h4 {
+      font-family: 'Gowun Batang', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .item-card p {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--ink-light);
+      opacity: 0.75;
+    }
+
+    /* ─── APPLY SECTION ─── */
+    #apply {
+      background: var(--cream);
+    }
+
+    .apply-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .apply-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 100px;
+      padding: 10px 22px;
+      font-size: 13px;
+      margin-top: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--sage-light);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
+    }
+
+    .form-card {
+      background: var(--warm-white);
+      border: 1px solid rgba(200,137,42,0.2);
+      border-radius: 20px;
+      padding: clamp(24px, 5vw, 48px);
+      box-shadow: 0 4px 40px var(--shadow);
+    }
+
+    .form-section-title {
+      font-family: 'Gowun Batang', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 28px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(28,21,16,0.1);
+    }
+
+    .form-section-title:first-child { margin-top: 0; }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 7px;
+      letter-spacing: 0.03em;
+    }
+
+    .form-group label .req {
+      color: var(--terracotta);
+      margin-left: 2px;
+    }
+
+    .form-group label .opt {
+      font-size: 11px;
+      color: var(--ink-light);
+      opacity: 0.5;
+      margin-left: 4px;
+      font-weight: 400;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid rgba(28,21,16,0.15);
+      border-radius: 10px;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(28,21,16,0.3);
+      font-size: 13px;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(200,137,42,0.12);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231C1510' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 500px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1.5px solid rgba(28,21,16,0.12);
+      background: var(--cream);
+      font-size: 13px;
+      color: var(--ink);
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .checkbox-label:has(input:checked) {
+      border-color: var(--amber);
+      background: rgba(200,137,42,0.08);
+      color: var(--amber);
+    }
+
+    .checkbox-label input { display: none; }
+
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1.5px solid rgba(28,21,16,0.12);
+      background: var(--cream);
+      font-size: 13px;
+      color: var(--ink);
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .radio-label:has(input:checked) {
+      border-color: var(--terracotta);
+      background: rgba(199,91,58,0.07);
+      color: var(--terracotta);
+    }
+
+    .radio-label input { display: none; }
+
+    .form-hint {
+      font-size: 11px;
+      color: var(--ink-light);
+      opacity: 0.55;
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    .submit-area {
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .submit-note {
+      font-size: 12px;
+      color: var(--ink-light);
+      opacity: 0.55;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .btn-submit {
+      width: 100%;
+      max-width: 340px;
+      padding: 16px 24px;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 4px 20px var(--shadow-strong);
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      background: var(--amber);
+      color: var(--ink);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(200,137,42,0.4);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* ─── SUCCESS STATE ─── */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .success-state.visible { display: block; }
+    .form-card.submitted { display: none; }
+
+    .success-icon {
+      font-size: 56px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .success-state h3 {
+      font-family: 'Gowun Batang', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .success-state p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--ink-light);
+      opacity: 0.75;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    footer .logo {
+      font-family: 'Gowun Batang', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    footer .tagline {
+      font-size: 12px;
+      color: rgba(251,245,230,0.4);
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+
+    footer .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 24px;
+      margin-bottom: 28px;
+    }
+
+    footer .contact-item {
+      font-size: 12px;
+      color: rgba(251,245,230,0.5);
+      letter-spacing: 0.04em;
+    }
+
+    footer .contact-item strong {
+      color: var(--amber);
+      font-weight: 500;
+    }
+
+    footer .divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(251,245,230,0.15);
+      margin: 24px auto;
+    }
+
+    footer .copy {
+      font-size: 11px;
+      color: rgba(251,245,230,0.2);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ─── LOADING ─── */
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(251,245,230,0.85);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .loading-overlay.visible { display: flex; }
+
+    .loader {
+      width: 36px;
+      height: 36px;
+      border: 3px solid rgba(200,137,42,0.2);
+      border-top-color: var(--amber);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-text {
+      font-family: 'Gowun Batang', serif;
+      font-size: 15px;
+      color: var(--ink);
+      opacity: 0.7;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(28,21,16,0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      font-family: 'Gowun Batang', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--amber);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 8px 18px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--amber-light);
+    }
+
+    /* ─── DIVIDER ─── */
+    .wave-divider {
+      width: 100%;
+      line-height: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+<div class="loading-overlay" id="loading">
+  <div class="loader"></div>
+  <div class="loading-text">신청서 접수 중…</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">해피니스북스토어 플리마켓</a>
+  <a href="#apply" class="nav-cta">✦ 신청하기</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Happiness Bookstore × b.books 0.1평 서점</div>
+  <div class="hero-badge">
+    <span>★</span>
+    선착순 9팀 모집 중
+  </div>
+  <div class="hero-title-wrap">
+    <div class="hero-sub">2026 부천문화재단 어린이축제 연계</div>
+    <h1 class="hero-title">
+      <span class="accent">플리마켓</span><br/>
+      신청하기
+    </h1>
+    <div class="hero-subtitle">들썩들썩 연희 놀이터 × 0.1평 서점</div>
+  </div>
+  <div class="hero-info">
+    <div class="hero-info-item">
+      <div class="dot"></div>
+      <span>2026년 7월 4일 (토)</span>
+    </div>
+    <div class="hero-info-item">
+      <div class="dot"></div>
+      <span>복사골문화센터 해피니스북스토어</span>
+    </div>
+    <div class="hero-info-item">
+      <div class="dot"></div>
+      <span>어린이·가족 대상 플리마켓</span>
+    </div>
+  </div>
+  <p class="hero-desc">
+    어린이가 처음으로 '마음에 드는 책'을<br/>
+    스스로 고르는 순간을 함께 만들어요.
+  </p>
+  <div class="hero-btns">
+    <a href="#apply" class="btn-primary">✦ 셀러 신청하기</a>
+    <a href="#about" class="btn-secondary">행사 안내 보기 →</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">about the market</div>
+    <h2 class="section-title">책 한 권이 건네지는<br/>그 순간을 위해</h2>
+    <p class="section-desc">
+      전통 연희와 민속 문화를 즐기러 온 어린이와 가족들에게 책과 굿즈를 매개로 한 또 다른 놀이 경험을 제공합니다. b.books 0.1평 서점 참가자들과 함께하는 특별한 하루입니다.
+    </p>
+    <div class="about-grid">
+      <div class="about-card">
+        <span class="icon">📚</span>
+        <h3>b.books 0.1평 서점</h3>
+        <p>책 한 권이 설 수 있는 최소한의 공간. 자신만의 취향과 이야기를 가진 누구든 큐레이션을 세상에 선보일 수 있는 참여형 서점 모델입니다.</p>
+      </div>
+      <div class="about-card">
+        <span class="icon">🎪</span>
+        <h3>어린이 축제 연계</h3>
+        <p>부천문화재단 주관 「들썩들썩 연희 놀이터」와 함께합니다. 공연, 민화 그리기, 민속 체험이 어우러지는 현장에서 플리마켓이 펼쳐집니다.</p>
+      </div>
+      <div class="about-card">
+        <span class="icon">🌱</span>
+        <h3>지역 문화와의 연대</h3>
+        <p>부천을 기반으로 성장하는 로컬 플랫폼 b.books. 시민 창작자들이 지역 문화의 다양성과 깊이를 아이들과 함께 나눕니다.</p>
+      </div>
+      <div class="about-card">
+        <span class="icon">✨</span>
+        <h3>참가 조건</h3>
+        <p>어린이·가족 대상 도서 또는 굿즈를 보유한 0.1평 서점 점주 및 작가·큐레이터. 어린이가 핵심 키워드입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <div class="section-inner">
+    <div class="section-label">event info</div>
+    <h2 class="section-title">행사 정보</h2>
+    <div class="info-table">
+      <div class="info-row">
+        <div class="info-label">행사명</div>
+        <div class="info-value">2026 부천문화재단 어린이축제 「들썩들썩 연희 놀이터」 연계 플리마켓</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">일시</div>
+        <div class="info-value">2026년 7월 4일 (토)</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">장소</div>
+        <div class="info-value">복사골문화센터 해피니스북스토어 앤 카페 (Happiness Bookstore &amp; Cafe)</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">주최/주관</div>
+        <div class="info-value">부천시 · 부천문화재단 / b.books(비북스) 공동 운영</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">모집 인원</div>
+        <div class="info-value">선착순 9개소 (+ b.books 자체 운영 1개소)</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">참가 대상</div>
+        <div class="info-value">어린이·가족 대상 도서 또는 굿즈 보유 작가 및 큐레이터</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">참가비</div>
+        <div class="info-value">0.1평 서점 판매수수료 기준에 준함</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ITEMS -->
+<section id="items">
+  <div class="section-inner">
+    <div class="section-label">참가 품목 예시</div>
+    <h2 class="section-title">어떤 것들을 팔 수 있나요?</h2>
+    <p class="section-desc">아래는 이번 어린이 행사 취지에 맞춰 구성한 품목 예시입니다. 추후 변경될 수 있습니다.</p>
+    <div class="items-grid">
+      <div class="item-card">
+        <div class="cat">도서</div>
+        <h4>어린이 도서</h4>
+        <p>동화책, 그림책, 어린이 교양서 큐레이션</p>
+      </div>
+      <div class="item-card">
+        <div class="cat">굿즈</div>
+        <h4>굿즈 / 소품</h4>
+        <p>반려돌멩이 굿즈, 어린이 캘리그라피 엽서·작품</p>
+      </div>
+      <div class="item-card">
+        <div class="cat">체험</div>
+        <h4>체험형 굿즈</h4>
+        <p>에코백 프린팅, 가족 대상 Tea 만들기 키트</p>
+      </div>
+      <div class="item-card">
+        <div class="cat">선물</div>
+        <h4>선물용 도서</h4>
+        <p>잘 포장된 선물용 그림책 패키지</p>
+      </div>
+      <div class="item-card">
+        <div class="cat">문구</div>
+        <h4>문구 / 소품</h4>
+        <p>우표 수집 관련 소품, 독서 관련 문구류 및 노트</p>
+      </div>
+      <div class="item-card">
+        <div class="cat">기타</div>
+        <h4>기타</h4>
+        <p>어린이·가족 대상이면 협의 후 참가 가능합니다</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section id="apply">
+  <div class="section-inner">
+    <div class="apply-header">
+      <div class="section-label">seller application</div>
+      <h2 class="section-title">셀러 신청하기</h2>
+      <div class="apply-status">
+        <div class="status-dot"></div>
+        <span>현재 모집 중 · 선착순 <strong id="remain-count" style="color:var(--amber-light);margin:0 2px">9</strong>팀 마감</span>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-card" id="apply-form-card">
+      <form id="apply-form">
+
+        <div class="form-section-title">기본 정보</div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>서점명 또는 셀러명 <span class="req">*</span></label>
+            <input type="text" class="form-input" name="storeName" placeholder="예: 꿈꾸는 서가" required />
+          </div>
+          <div class="form-group">
+            <label>점주/셀러 성함 <span class="req">*</span></label>
+            <input type="text" class="form-input" name="ownerName" placeholder="홍길동" required />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>연락처 <span class="req">*</span></label>
+            <input type="tel" class="form-input" name="phone" placeholder="010-0000-0000" required />
+          </div>
+          <div class="form-group">
+            <label>이메일 <span class="opt">(선택)</span></label>
+            <input type="email" class="form-input" name="email" placeholder="example@email.com" />
+          </div>
+        </div>
+
+        <div class="form-section-title">판매 정보</div>
+
+        <div class="form-group">
+          <label>판매 예정 품목 카테고리 <span class="req">*</span> <span class="opt">(복수 선택 가능)</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox" name="category" value="어린이도서" /> 📚 어린이도서</label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="그림책" /> 🖼 그림책</label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="굿즈/소품" /> 🎨 굿즈/소품</label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="체험형굿즈" /> ✋ 체험형굿즈</label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="문구" /> ✏️ 문구</label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="독립출판" /> 📖 독립출판</label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="기타" /> 기타</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>판매 품목 설명 <span class="req">*</span></label>
+          <textarea class="form-textarea" name="itemDesc" placeholder="판매하실 품목을 간략히 소개해 주세요. 어린이·가족 대상 상품 위주로 작성해 주세요." required></textarea>
+        </div>
+
+        <div class="form-section-title">참가 유형</div>
+
+        <div class="form-group">
+          <label>셀러 유형 <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="sellerType" value="0.1평서점 점주" required /> 0.1평서점 점주</label>
+            <label class="radio-label"><input type="radio" name="sellerType" value="외부 셀러" /> 외부 셀러</label>
+          </div>
+          <div class="form-hint">외부 셀러의 경우 도서·어린이 관련 굿즈 위주 참가 권장 / 사전 협의 필수</div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>인스타그램 계정 <span class="opt">(선택)</span></label>
+            <input type="text" class="form-input" name="instagram" placeholder="@계정명" />
+          </div>
+          <div class="form-group">
+            <label>b.books 0.1평서점 서가 번호 <span class="opt">(점주만)</span></label>
+            <input type="text" class="form-input" name="shelfNo" placeholder="예: A-12" />
+          </div>
+        </div>
+
+        <div class="form-section-title">추가 사항</div>
+
+        <div class="form-group">
+          <label>추가 요청사항 <span class="opt">(선택)</span></label>
+          <textarea class="form-textarea" name="memo" placeholder="부스 배치 관련 요청, 체험 활동 계획, 기타 문의사항 등 자유롭게 적어주세요." style="min-height:70px"></textarea>
+        </div>
+
+        <div class="submit-area">
+          <p class="submit-note">
+            제출된 신청서는 구글 시트로 접수됩니다.<br/>
+            신청 정보는 검토 후 개별 연락드립니다.
+          </p>
+          <button type="submit" class="btn-submit" id="submit-btn">
+            ✦ 신청서 제출하기
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-state" id="success-msg">
+      <span class="success-icon">🎉</span>
+      <h3>신청 완료!</h3>
+      <p>
+        신청서가 접수되었습니다.<br/>
+        검토 후 개별 연락드릴게요.<br/><br/>
+        <strong>b.books</strong> 인스타그램(<a href="https://www.instagram.com/b_books2026" target="_blank" style="color:var(--amber)">@b_books2026</a>)에서도 소식을 확인하세요.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">해피니스북스토어 플리마켓</div>
+  <div class="tagline">Happiness Bookstore × b.books 0.1평 서점 · 2026.07.04</div>
+  <div class="contact-grid">
+    <div class="contact-item"><strong>주관</strong> b.books(비북스)</div>
+    <div class="contact-item"><strong>연락처</strong> 010-6663-4850</div>
+    <div class="contact-item"><strong>인스타</strong> @b_books2026</div>
+  </div>
+  <div class="divider"></div>
+  <div class="copy">© 2026 b.books · 비북스 · All rights reserved</div>
+</footer>
+
+<script>
+  // NAV scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // FORM SUBMIT
+  const form = document.getElementById('apply-form');
+  const loading = document.getElementById('loading');
+  const formCard = document.getElementById('apply-form-card');
+  const successMsg = document.getElementById('success-msg');
+  const submitBtn = document.getElementById('submit-btn');
+
+  // ⬇️  여기에 Google Apps Script 웹 앱 URL을 붙여넣으세요
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw5awoC2RfPNI_guefk2h3xFoXqBKnnpeyLx-Fc1JDUpIgVQ3zl2MUY-kipoBumObFH/exec';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // 카테고리 체크 검증
+    const checkedCategories = form.querySelectorAll('input[name="category"]:checked');
+    if (checkedCategories.length === 0) {
+      alert('판매 예정 품목 카테고리를 최소 1개 이상 선택해 주세요.');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    loading.classList.add('visible');
+
+    const fd = new FormData(form);
+    const categories = Array.from(checkedCategories).map(c => c.value).join(', ');
+    const now = new Date();
+    const timestamp = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+    const payload = {
+      timestamp,
+      storeName:   fd.get('storeName')   || '',
+      ownerName:   fd.get('ownerName')   || '',
+      phone:       fd.get('phone')       || '',
+      email:       fd.get('email')       || '',
+      categories,
+      itemDesc:    fd.get('itemDesc')    || '',
+      sellerType:  fd.get('sellerType')  || '',
+      instagram:   fd.get('instagram')   || '',
+      shelfNo:     fd.get('shelfNo')     || '',
+      memo:        fd.get('memo')        || '',
+    };
+
+    try {
+      if (SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        // 테스트 모드: 실제 연동 전 UI 확인용
+        await new Promise(r => setTimeout(r, 1200));
+        console.log('📋 제출 데이터 (테스트):', payload);
+      } else {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+      }
+
+      loading.classList.remove('visible');
+      formCard.classList.add('submitted');
+      successMsg.classList.add('visible');
+      successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    } catch (err) {
+      loading.classList.remove('visible');
+      submitBtn.disabled = false;
+      alert('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+      console.error(err);
+    }
+  });
+</script>
+</body>
+</html>
